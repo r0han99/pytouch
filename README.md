@@ -5,7 +5,7 @@
 
 
 ## Description
-    This utility when executed will automatically fill the import statements required for a python file for your work, I wrote this code-contraption only because I was annoyed of writting the same import lines for multiple python files 
+    This utility when executed will automatically fill the import statements required for a python file for your work, I wrote this scrip only because I was annoyed of writting the same import lines for multiple python files.This kind of scenario of creating multiple python files with same imports may come across during the learning curve of a particular ascpect of python. 
 
 ## Usage
 
@@ -17,7 +17,7 @@
 
 ```bash
     
-    pytouch --file greyscalefigure.py image+processing.py
+    pytouch --file greyscalefigure.py image+processing.py # Example files 
 ```
 ## Installation 
 ##### Linux + MacOS
