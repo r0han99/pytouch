@@ -10,7 +10,7 @@ try:
         print(MODS)
         # Write mods in import.logs
 
-        with open('/tmp/headers.log', 'w') as f:
+        with open(str(os.getenv("HOME"))+'/Documents/.pytouchUtils/headers.log', 'w') as f:
             for module in MODS:
                 f.write('import ' + module + '\n')
 
@@ -22,7 +22,7 @@ try:
     elif (sys.argv[1:][0] == '--truncate' or sys.argv[1:][0] == '-t'):
         print('\nErasing data in logs')
         
-        with open('/tmp/headers.log', 'w') as f:
+        with open(str(os.getenv("HOME"))+'/Documents/.pytouchUtils/headers.log', 'w') as f:
             f.truncate(0)
             print('\033[96m'+'headers.log..'+'\033[0m'+',\ndata_status=['+'\033[91m'+'truncated'+'\033[0m'+']')
     
@@ -35,7 +35,7 @@ try:
 
         print('\nEnter the module name and alias only [ex- numpy as np,pandas as pd ...] [comma-separated]')
         MODS = input().split(',')
-        with open('/tmp/headers.log', 'a') as f:
+        with open(str(os.getenv("HOME"))+'/Documents/.pytouchUtils/headers.log', 'a') as f:
             for module in MODS:
                 f.write('import ' + module + '\n')
 
@@ -47,7 +47,7 @@ try:
     elif (sys.argv[1:][0] == '--display' or sys.argv[1:][0] == '-d'):
         print('\033[92m'+'\nDisplaying logs..'+'\033[0m')
 
-        with open('/tmp/headers.log', 'r') as f:
+        with open(str(os.getenv("HOME"))+'/Documents/.pytouchUtils/headers.log', 'r') as f:
 
             content = f.readlines()
 
@@ -61,7 +61,7 @@ try:
     elif (sys.argv[1:][0] == '--edit' or sys.argv[1:][0] == '-e'):
         print('\033[92m'+'\nEditing logs..'+'\033[0m')
 
-        with open('/tmp/headers.log', 'r') as f:
+        with open(str(os.getenv("HOME"))+'/Documents/.pytouchUtils/headers.log', 'r') as f:
 
             content = f.readlines()
 
@@ -90,7 +90,7 @@ try:
                     '\nEnter the module name and alias only [ex- numpy as np,pandas as pd ...] [comma-separated]\n')
                 content[editline - 1] = 'import ' + replace
                 print(content)
-                with open('/tmp/headers.log', 'w') as f:
+                with open(str(os.getenv("HOME"))+'/Documents/.pytouchUtils/headers.log', 'w') as f:
 
                     for module in content:
                         f.write(module + '\n')
@@ -106,7 +106,7 @@ try:
 
     elif (sys.argv[1]=='--file' or sys.argv[1] == '-f'):
         filenames = sys.argv[2:]
-        with open('/tmp/headers.log','r') as hf:
+        with open(str(os.getenv("HOME"))+'/Documents/.pytouchUtils/headers.log','r') as hf:
             content = hf.readlines()
         hf.close()
         for file in filenames:
@@ -131,6 +131,16 @@ except KeyboardInterrupt:
    
         
 
+
+
+
+        
+
+        
+    
+       
+
+     
 
 
 
