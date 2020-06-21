@@ -1,0 +1,143 @@
+#!/bin/bash
+
+
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+
+if [ ! -f /usr/local/bin/headers.log ]; then
+    
+    echo "Files doesn't exist .. "
+    echo -e "Creating the ${GREEN}logs${NC} required "
+    sudo touch /usr/local/bin/headers.log 
+    
+    if [ "$#" == 0 ]
+    then
+        echo ""
+        echo -e "No options, No motive, ${RED}exiting..${NC}"
+    
+    elif [ $1 == "--help" ] || [ $1 == "-h" ]
+    then
+        
+        python3 /usr/local/bin/help.py
+        
+    elif [ $1 == "--set" ] || [ $1 == "-s" ]
+    then
+        python3 /usr/local/bin/pytouch.py "$1"
+        
+    elif [ $1 == "--truncate" ] || [ $1 == "-t" ]
+    then 
+        python3 /usr/local/bin/pytouch.py "$1"
+        
+    elif [ $1 == "--display" ] || [ $1 == "-d" ]
+     then 
+          echo -e "log file is ${RED}empty..${NC}"
+    
+    elif [ $1 == "--edit" ] || [ $1 == "-e" ]
+     then 
+         echo -e "log file is ${RED}empty..${NC}"
+         echo -e "invoking ${CYAN}--set${NC} function.."
+         
+         python3 /usr/local/bin/pytouch.py "--set"
+         
+    elif [ $1 == "--file" ] || [ $1 == "-f" ]
+     then 
+         echo "log file is empty.."
+         echo -e "invoking ${CYAN}--set${NC} function.."
+         python3 /usr/local/bin/pytouch.py "--set"            
+        
+    elif [ $1 == "--add" ] || [ $1 == "-a" ]
+     then 
+            python3 /usr/local/bin/pytouch.py "--set"
+    
+    
+        
+        
+    else
+        echo -e "invalid args.try ${RED}'--help or -h'${NC} for assistance."
+    fi
+        
+    
+    
+    
+    
+else
+    echo "logs Exist"
+    echo "proceeding to the execution.."
+    echo " "
+    # if logs empty then only do set else take the file name argument to cat 
+    
+    
+     if [ "$#" == 0 ]
+     then
+         echo -e "No options, No motive, ${RED}exiting..${NC}"
+         echo -e "try ${RED}'--help or -h'${NC} for assistance."
+     
+     elif [ $1 == "--help" ] || [ $1 == "-h" ]
+     then
+         python3 /usr/local/bin/help.py
+        
+     elif [ $1 == "--set" ] || [ $1 == "-s" ]
+     then
+            python3 /usr/local/bin/pytouch.py "$1"
+        
+     elif [ $1 == "--truncate" ] || [ $1 == "-t" ]
+     then 
+            python3 /usr/local/bin/pytouch.py "$1"
+     
+     elif [ $1 == "--add" ] || [ $1 == "-a" ]
+     then 
+            python3 /usr/local/bin/pytouch.py "$1"
+            
+     elif [ $1 == "--display" ] || [ $1 == "-d" ]
+     then 
+            if [ ! -s /usr/local/bin/headers.log ]
+            then
+            
+                echo -e "log file is ${RED}empty..${NC}"
+                echo -e "use the ${RED}--set${NC} option to preset imports in the log."
+            else
+                python3 /usr/local/bin/pytouch.py "$1"
+            fi
+            
+     elif [ $1 == "--edit" ] || [ $1 == "-e" ]
+     then 
+            python3 /usr/local/bin/pytouch.py "$1"
+                
+            
+     elif [ $1 == "--file" ]  || [ $1 == "-f" ]
+     then
+            if [ "$#" -ge 2 ] 
+            then
+                python3 /usr/local/bin/pytouch.py "$@"
+                  
+            elif [ -s /usr/local/bin/headers.log ]
+             then
+                 echo -e "looks like you ${RED}forgot${NC} something .."
+                 echo -e "Enter a ${CYAN}Pythonfile${NC} name ${GREEN}[with-extension]${NC} : " 
+                 read var
+                 sudo touch $var
+                 echo "setting the following imports .."
+            
+                 cat /usr/local/bin/headers.log > $var
+            
+                 echo -e "${GREEN}imports set in :${NC} [$var]"
+                
+             else
+                 echo "log files are empty, use --set option to preset the modules.."
+                 echo "you are lazy I know :P, I'll do that for you stay put my friend.."
+                 echo -e "${GREEN}exec. ${RED}--set-mode${NC} .."
+                 python3 /usr/local/bin/pytouch.py "--set"
+             fi
+     
+     
+    else
+        echo -e "invalid args.try ${RED}'--help or -h'${NC} for assistance."
+    fi
+        
+    
+                               
+    
+    
+fi
