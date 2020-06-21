@@ -6,11 +6,13 @@ NC='\033[0m'
 GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 
-if [ ! -f /tmp/headers.log ]; then
+mkdir ~/Documents/.pytouchUtils
+
+if [ ! -f ~/Documents/.pytouchUtils/headers.log ]; then
     
     echo "Files doesn't exist .. "
     echo -e "Creating the ${GREEN}logs${NC} required "
-    sudo touch /tmp/headers.log 
+    sudo touch ~/Documents/.pytouchUtils/headers.log 
     
     if [ "$#" == 0 ]
     then
@@ -92,7 +94,7 @@ else
             
      elif [ $1 == "--display" ] || [ $1 == "-d" ]
      then 
-            if [ ! -s /usr/local/bin/headers.log ]
+            if [ ! -s ~/Documents/.pytouchUtils/headers.log ]
             then
             
                 echo -e "log file is ${RED}empty..${NC}"
@@ -112,15 +114,15 @@ else
             then
                 python3 /usr/local/bin/pytouch.py "$@"
                   
-            elif [ -s /tmp/headers.log ]
+            elif [ -s ~/Documents/.pytouchUtils/headers.log ]
              then
                  echo -e "looks like you ${RED}forgot${NC} something .."
                  echo -e "Enter a ${CYAN}Pythonfile${NC} name ${GREEN}[with-extension]${NC} : " 
                  read var
-                 sudo touch $var
+                 touch $var
                  echo "setting the following imports .."
             
-                 sudo cat /tmp/headers.log > $var
+                 cat ~/Documents/.pytouchUtils/headers.log > $var
             
                  echo -e "${GREEN}imports set in :${NC} [$var]"
                 
