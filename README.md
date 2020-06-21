@@ -5,7 +5,7 @@
 
 
 ## Description
-    This utility when executed will automatically fills the import statements required for a python file for your work, I wrote this code-contraption only because I was annoyed of writting the same import lines for multiple python files 
+    This utility when executed will automatically fill the import statements required for a python file for your work, I wrote this code-contraption only because I was annoyed of writting the same import lines for multiple python files 
 
 ## Usage
 
