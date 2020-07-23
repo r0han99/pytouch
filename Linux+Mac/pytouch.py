@@ -4,7 +4,7 @@ import os
 try:
     if (' '.join(sys.argv[1:3]) == '-m --file-chmod' or ' '.join(sys.argv[1:3]) == '-m -fch'):
 
-        SHABANG = '#!'+subprocess.run(['which','python'], capture_output=True).stdout.decode('utf-8')
+        SHABANG = '#!'+subprocess.run(['which','python3'], capture_output=True).stdout.decode('utf-8')
 
     elif (sys.argv[1] == '--bash' or sys.argv[1] == '-b'):
 
