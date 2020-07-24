@@ -31,7 +31,7 @@ then
     
     echo ""
     
-    echo -e "${GREEN}Handiling permissions ..${NC}"
+    echo -e "${GREEN}Handeling permissions ..${NC}"
     
     echo -e "${GREEN}Required to be ${RED}Root .. ${NC}"
     
