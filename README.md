@@ -23,7 +23,7 @@
 
 ```bash
     
-    pytouch --bash bashscript0.sh bashscript1.sh ...
+    pytouch --bash bashscript0.sh bashscript1.sh 
 ```
 
 ## Installation 
