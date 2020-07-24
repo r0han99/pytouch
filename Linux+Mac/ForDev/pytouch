@@ -6,10 +6,14 @@ NC='\033[0m'
 GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 
+ 
+
 if [ ! -f ~/Documents/.pytouchUtils/headers.log ]; then
 
     echo "Files doesn't exist .. "
     echo -e "Creating the ${GREEN}logs${NC} required "
+    sudo mkdir ~/Documents/.pytouchUtils
+    sudo chmod o+w ~/Documents/.pytouchUtils/
     sudo touch ~/Documents/.pytouchUtils/headers.log
 
     if [ "$#" == 0 ]
@@ -47,11 +51,20 @@ if [ ! -f ~/Documents/.pytouchUtils/headers.log ]; then
          echo -e "invoking ${CYAN}--set${NC} function.."
          python3 /usr/local/bin/pytouch.py "--set"
 
+    
+    
+    
     elif [ $1 == "--add" ] || [ $1 == "-a" ]
      then
             python3 /usr/local/bin/pytouch.py "--set"
 
-
+    elif [ "$1 $2" == "-m --file-chmod" ] || [ "$1 $2" == "-m -fch" ]
+      then
+            echo "Logs are Empty, update logs invoking --set option."
+    
+    elif [ "$1" == "--bash" ] || [ "$1" == "-b" ]
+      then
+            python3 /usr/local/bin/pytouch.py "$@"
 
 
     else
