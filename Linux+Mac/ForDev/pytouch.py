@@ -1,14 +1,21 @@
 import sys
 import os
+import re
+import subprocess
 
 try:
     if (' '.join(sys.argv[1:3]) == '-m --file-chmod' or ' '.join(sys.argv[1:3]) == '-m -fch'):
 
-        SHABANG = '#!'+subprocess.run(['which','python3'], capture_output=True).stdout.decode('utf-8')
+        SHABANG = '#!'+ str(subprocess.check_output(['which','python3']).decode('utf-8'))
+        print('Python File : ',end="")
 
     elif (sys.argv[1] == '--bash' or sys.argv[1] == '-b'):
+        
+        
 
-        SHABANG = '#!'+subprocess.run(['which','bash'], capture_output=True).stdout.decode('utf-8')
+        SHABANG = '#!'+str(subprocess.check_output(['which','bash']).decode('utf-8'))
+
+        print('Bash File : ',end="")
 
     multiple = ['-fch','--file-chmod']
 
