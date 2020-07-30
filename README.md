@@ -19,7 +19,7 @@
     
     pytouch --file greyscalefigure.py image+processing.py # Example files 
 ```
-##### Creating Bashscripts with and Interpreter Preset.
+##### Creating Bashscripts with an Interpreter Preset.
 
 ```bash
     
