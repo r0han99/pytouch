@@ -34,5 +34,5 @@
     bash setup.sh
 ```
 
-##### Windows : underdev
+##### Windows : use pytinstaller to convert the script into Binary/exe.
 
