@@ -13,7 +13,8 @@ if [ ! -f ~/Documents/.pytouchUtils/headers.log ]; then
     echo "Files doesn't exist .. "
     echo -e "Creating the ${GREEN}logs${NC} required "
     sudo mkdir ~/Documents/.pytouchUtils
-    sudo chmod o+w ~/Documents/.pytouchUtils/
+    sudo chmod 777 ~/Documents/.pytouchUtils/
+    sudo chmod 777 ~/Documents/.pytouchUtils/headers.log
     sudo touch ~/Documents/.pytouchUtils/headers.log
 
     if [ "$#" == 0 ]
