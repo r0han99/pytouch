@@ -19,6 +19,13 @@
     
     pytouch --file greyscalefigure.py image+processing.py # Example files 
 ```
+##### Creating Bashscripts with an Interpreter Preset.
+
+```bash
+    
+    pytouch --bash bashscript0.sh bashscript1.sh 
+```
+
 ## Installation 
 ##### Linux + MacOS
 
@@ -27,5 +34,5 @@
     bash setup.sh
 ```
 
-##### Windows : underdev
+##### Windows : use pytinstaller to convert the script into Binary/exe.
 
