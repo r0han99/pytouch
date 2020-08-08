@@ -44,12 +44,12 @@ print('         '+'\033[1m'+'--add'+' | -a'+'\033[0m'+'                      add
 
 print('\n')
 
-print('         '+'\033[1m'+'-m --file-chmod'+' | -m -fch'+'\033[0m'+'      Creates a file with provided filename, converts it into an Executable with an Interpreter.')
+print('         '+'\033[1m'+'-m --file-chmod'+' | -m -fch'+'\033[0m'+' [filename.py ...]       Creates a file with provided filename, converts it into an Executable with an Interpreter.')
 
 
 print('\n')
 
-print('         '+'\033[1m'+'--bash'+' | -b'+'\033[0m'+'                     Creates an Executable bash script.')
+print('         '+'\033[1m'+'--bash'+' | -b'+'\033[0m'+' [filename.sh ...]                    Creates an Executable bash script.')
 
 
 

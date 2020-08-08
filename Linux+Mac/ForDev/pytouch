@@ -119,14 +119,37 @@ else
      then
             python3 /usr/local/bin/pytouch.py "$1"
 
+
      elif [ "$1 $2" == "-m --file-chmod" ] || [ "$1 $2" == "-m -fch" ]
       then
-            python3 /usr/local/bin/pytouch.py "$@"
+            for arg in ${@:3}
+                do
+                    if [[ $arg =~ (.*)\.py$  ]]
+                    then
+                        python3 /usr/local/bin/pytouch.py $1 $2 $arg
+                    else
+                        echo ""
+                        echo -e "[${RED}$arg${NC}] Invalid filename! (No .py)"
+                        exit
+                    fi 
+                done
 
      elif [ "$1" == "--bash" ] || [ "$1" == "-b" ]
       then
-            python3 /usr/local/bin/pytouch.py "$@"
-
+            
+            for arg in ${@:2}
+                do
+                    if [[ $arg =~ (.*)\.sh$  ]]
+                    then
+                        
+                        python3 /usr/local/bin/pytouch.py $1 $arg
+                        
+                    else
+                        echo ""
+                        echo -e "[${RED}$arg${NC}] Invalid filename! (No .sh)"
+                        exit
+                    fi 
+                done
 
      elif [ $1 == "--file" ]  || [ $1 == "-f" ]
      then
