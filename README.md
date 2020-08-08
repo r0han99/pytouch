@@ -19,6 +19,13 @@
     
     pytouch --file greyscalefigure.py image+processing.py # Example files 
 ```
+##### Convert Existing Python files to executables.
+
+```bash
+
+    pytouch -m --file-chmod greyscalefigure.py image+processing.py
+```
+
 ##### Creating Bashscripts with an Interpreter Preset.
 
 ```bash
